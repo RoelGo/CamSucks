@@ -1,15 +1,17 @@
 package be.roelgo.camsucks.application;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Orchestrator {
 
-
+    @Scheduled(fixedRate = 5000)
     public void orchestrate() {
         pollSensors();
         regulateSpeed();
         sendSpeed();
+        System.out.println();
     }
 
     private void pollSensors() {

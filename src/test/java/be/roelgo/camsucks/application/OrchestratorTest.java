@@ -28,7 +28,7 @@ public class OrchestratorTest {
     }
 
     @Test
-    public void name() {
+    public void orchestratorShould_pollRegulateAndSend() {
 
         orchestrator.orchestrate();
 
