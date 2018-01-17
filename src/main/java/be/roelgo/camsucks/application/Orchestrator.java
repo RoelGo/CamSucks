@@ -11,7 +11,6 @@ public class Orchestrator {
         pollSensors();
         regulateSpeed();
         sendSpeed();
-        System.out.println();
     }
 
     private void pollSensors() {
