@@ -30,6 +30,10 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
+    compile ('com.profesorfalken:jSensors:2.0.2') {
+        exclude group: 'org.slf4j'
+    }
+
     compile('org.springframework.shell:spring-shell-starter:2.0.0.M2')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

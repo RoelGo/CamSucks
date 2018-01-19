@@ -1,4 +1,4 @@
-package be.roelgo.camsucks.application;
+package be.roelgo.camsucks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
