@@ -34,6 +34,9 @@ dependencies {
         exclude group: 'org.slf4j'
     }
 
+    compile 'com.google.guava:guava:19.0'
     compile('org.springframework.shell:spring-shell-starter:2.0.0.M2')
+
+    testCompile 'javax.inject:javax.inject:1'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

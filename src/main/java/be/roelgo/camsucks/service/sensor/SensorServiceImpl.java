@@ -1,15 +1,21 @@
 package be.roelgo.camsucks.service.sensor;
 
 import be.roelgo.camsucks.service.model.SensorData;
+import be.roelgo.camsucks.service.model.SensorProvider;
 import be.roelgo.camsucks.service.model.SensorService;
-import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
 import org.springframework.stereotype.Component;
 
 @Component
 public class SensorServiceImpl implements SensorService {
 
-    private Components components = JSensors.get.components();
+    private final SensorProvider sensorProvider;
+    private Components components;
+
+    public SensorServiceImpl(SensorProvider sensorProvider) {
+        this.sensorProvider = sensorProvider;
+        this.components = sensorProvider.getComponents();
+    }
 
     @Override
     public SensorData poll() {
