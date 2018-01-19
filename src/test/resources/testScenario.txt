@@ -1,33 +1,33 @@
-Temp CPU Core: 50.5
+Temp CPU Core: 43.5
 Temp Temperature #1: 51
 Temp Temperature #2: 31
 Temp Temperature #3: 25.5
-Temp Temperature #5: 28
+Temp Temperature #5: 29
 Temp Temperature #6: 22
 [COMPONENT]
 CPU
 Label: Intel Core i5-6400
-Load CPU Core #1: 45.94595
-Load CPU Core #2: 55.4054
-Load CPU Core #3: 40.54054
-Load CPU Core #4: 48.64865
-Load CPU Total: 47.63514
-Temp CPU Core #1:
-Temp CPU Core #2:
-Temp CPU Core #3:
-Temp CPU Core #4:
-Temp CPU Package:
-Load Memory: 54.16505
+Load CPU Core #1: 25.45454
+Load CPU Core #2: 32.72727
+Load CPU Core #3: 29.09091
+Load CPU Core #4: 38.18182
+Load CPU Total: 31.36363
+Temp CPU Core #1: 0
+Temp CPU Core #2: 0
+Temp CPU Core #3: 0
+Temp CPU Core #4: 0
+Temp CPU Package: 0
+Load Memory: 59.36527
 [COMPONENT]
 GPU
 Label: Radeon RX Vega
 Temp GPU Core: 25
-Fan GPU Fan: 742
-Load GPU Core: 12
+Fan GPU Fan: 743
+Load GPU Core: 0
 [COMPONENT]
 DISK
 Label: Generic Hard Disk
-Load Used Space: 91.88526
+Load Used Space: 91.92871
 [COMPONENT]
 DISK
 Label: ST980811AS
@@ -36,4 +36,4 @@ Temp Temperature: 27
 DISK
 Label: ST3000DM001-1ER166
 Temp Temperature: 32
-Load Used Space: 95.01321
+Load Used Space: 95.01344
