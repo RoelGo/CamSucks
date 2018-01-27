@@ -23,16 +23,17 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
     maven { url "https://repo.spring.io/milestone" }
     maven { url "https://repo.spring.io/snapshot" }
 }
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    compile ('com.profesorfalken:jSensors:2.0.2') {
+    compile ('com.github.RoelGo:jSensors:2.0.4') {
         exclude group: 'org.slf4j'
     }
+    compile 'com.github.RoelGo:MiniPID-Java:1.0.0'
 
     compile 'com.google.guava:guava:19.0'
     compile('org.springframework.shell:spring-shell-starter:2.0.0.M2')
