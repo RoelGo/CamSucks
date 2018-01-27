@@ -1,6 +1,6 @@
 package be.roelgo.camsucks.application;
 
-import be.roelgo.camsucks.service.model.SensorService;
+import be.roelgo.camsucks.service.model.*;
 import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -9,28 +9,30 @@ import org.springframework.stereotype.Component;
 @Profile("!test")
 public class Orchestrator {
 
-    private final SensorService sensorService;
+    private SensorService sensorService;
+    private Regulator regulator;
+    private FanService fanService;
 
-    public Orchestrator(SensorService sensorService) {
+    public Orchestrator(SensorService sensorService, Regulator regulator, FanService fanService) {
         this.sensorService = sensorService;
+        this.regulator = regulator;
+        this.fanService = fanService;
     }
 
     @Scheduled(fixedRate = 5000)
     public void orchestrate() {
-        pollSensors();
-        regulateSpeed();
-        sendSpeed();
+        sendSpeed(regulateSpeed(pollSensors()));
     }
 
-    private void pollSensors() {
-        sensorService.poll();
+    private SensorData pollSensors() {
+        return sensorService.poll();
     }
 
-    private void regulateSpeed() {
-        System.out.println("Regulating speed.");
+    private Speed regulateSpeed(SensorData sensorData) {
+        return regulator.regulate(sensorData);
     }
 
-    private void sendSpeed() {
-        System.out.println("Sending speed.");
+    private void sendSpeed(Speed speed) {
+        fanService.sendSpeed(speed);
     }
 }
