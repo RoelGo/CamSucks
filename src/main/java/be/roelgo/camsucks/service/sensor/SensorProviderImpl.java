@@ -6,15 +6,11 @@ import com.profesorfalken.jsensors.model.components.Components;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-import static com.google.common.collect.ImmutableBiMap.of;
-
 @Component
 @Profile("!test")
 public class SensorProviderImpl implements SensorProvider {
-    private Components components = JSensors.get.components();
-
     @Override
     public Components getComponents() {
-        return components;
+        return JSensors.get.components();
     }
 }

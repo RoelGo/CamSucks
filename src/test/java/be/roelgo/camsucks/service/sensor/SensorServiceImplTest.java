@@ -1,9 +1,7 @@
 package be.roelgo.camsucks.service.sensor;
 
 import be.roelgo.camsucks.CamSucksApplication;
-import be.roelgo.camsucks.IntegrationTestConfiguration;
 import be.roelgo.camsucks.service.model.SensorData;
-import be.roelgo.camsucks.service.model.SensorService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
@@ -16,17 +14,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {
-        CamSucksApplication.class,
-        IntegrationTestConfiguration.class
+        CamSucksApplication.class
 })
 @ActiveProfiles({"test"})
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class SensorServiceImplTest {
+
+    @Inject
+    private TestSensorProvider testSensorProvider;
 
     @Inject
     private SensorServiceImpl sensorService;
 
     @Test
-    public void poll() {
+    public void poll() throws Exception {
+
+        testSensorProvider.setStubString("testScenario.txt");
+
         SensorData actual = sensorService.poll();
 
         assertThat(actual).isNotNull();

@@ -13,20 +13,20 @@ import static java.lang.Double.valueOf;
 public class SensorServiceImpl implements SensorService {
 
     private final SensorProvider sensorProvider;
-    private Components components;
 
     public SensorServiceImpl(SensorProvider sensorProvider) {
         this.sensorProvider = sensorProvider;
-        this.components = sensorProvider.getComponents();
     }
 
     @Override
     public SensorData poll() {
+        Components components = sensorProvider.getComponents();
+
         SensorData sensorData = new SensorData();
 
-        Double cpuValue = getCPUValue();
-        Double moboValue = getMOBOValue();
-        Double gpuValue = getGPUValue();
+        Double cpuValue = getCPUValue(components);
+        Double moboValue = getMOBOValue(components);
+        Double gpuValue = getGPUValue(components);
 
         sensorData.setCpu(valueOf(0.0).equals(cpuValue) ? moboValue : cpuValue);
         sensorData.setGpu(gpuValue);
@@ -34,7 +34,7 @@ public class SensorServiceImpl implements SensorService {
         return sensorData;
     }
 
-    private Double getGPUValue() {
+    private Double getGPUValue(Components components) {
         return components.gpus.stream()
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Couldn't find GPU :("))
@@ -44,7 +44,7 @@ public class SensorServiceImpl implements SensorService {
                 .value;
     }
 
-    private Double getCPUValue() {
+    private Double getCPUValue(Components components) {
         return components.cpus.stream()
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Couldn't find CPU :("))
@@ -56,7 +56,7 @@ public class SensorServiceImpl implements SensorService {
                 .value;
     }
 
-    private Double getMOBOValue() {
+    private Double getMOBOValue(Components components) {
         return components.mobos.stream()
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Couldn't find MOBO :("))
