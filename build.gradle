@@ -36,7 +36,7 @@ dependencies {
     compile 'com.github.RoelGo:MiniPID-Java:1.0.0'
 
     compile 'com.google.guava:guava:19.0'
-    compile('org.springframework.shell:spring-shell-starter:2.0.0.M2')
+    compile('org.springframework.shell:spring-shell-starter:2.0.1.BUILD-SNAPSHOT')
 
     testCompile 'javax.inject:javax.inject:1'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
