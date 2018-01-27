@@ -1,8 +1,10 @@
-Temp CPU Core: 43.5
-Temp Temperature #1: 51
-Temp Temperature #2: 31
+[COMPONENT]
+MOBO
+Temp CPU Core: 46.5
+Temp Temperature #1: 47
+Temp Temperature #2: 28
 Temp Temperature #3: 25.5
-Temp Temperature #5: 29
+Temp Temperature #5: 28
 Temp Temperature #6: 22
 [COMPONENT]
 CPU
@@ -21,19 +23,14 @@ Load Memory: 59.36527
 [COMPONENT]
 GPU
 Label: Radeon RX Vega
-Temp GPU Core: 25
-Fan GPU Fan: 743
-Load GPU Core: 0
+Temp GPU Core: 29
+Fan GPU Fan: 739
+Load GPU Core: 6
 [COMPONENT]
 DISK
 Label: Generic Hard Disk
-Load Used Space: 91.92871
+Load Used Space: 91.85265
 [COMPONENT]
 DISK
-Label: ST980811AS
-Temp Temperature: 27
-[COMPONENT]
-DISK
-Label: ST3000DM001-1ER166
-Temp Temperature: 32
-Load Used Space: 95.01344
+Label: Generic Hard Disk
+Load Used Space: 95.01414

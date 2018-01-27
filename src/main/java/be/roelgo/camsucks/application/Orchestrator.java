@@ -1,10 +1,12 @@
 package be.roelgo.camsucks.application;
 
 import be.roelgo.camsucks.service.model.SensorService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
+@Profile("!test")
 public class Orchestrator {
 
     private final SensorService sensorService;

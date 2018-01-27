@@ -1,8 +1,8 @@
 package be.roelgo.camsucks.service.model;
 
 public class SensorData {
-    private Double cpu;
-    private Double gpu;
+    private Double cpu = 0.0;
+    private Double gpu = 0.0;
 
     public Double getCpu() {
         return cpu;
