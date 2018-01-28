@@ -24,4 +24,7 @@ dist/
 nbdist/
 .nb-gradle/
 out/
+
+### Spring Shell ###
 spring-shell.log
+null

@@ -6,19 +6,24 @@ buildscript {
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/plugins-release' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-maven'
+apply plugin: 'propdeps-idea'
 
 group = 'be.roelgo'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2'
 sourceCompatibility = 1.8
 
 repositories {
@@ -28,16 +33,18 @@ repositories {
     maven { url "https://repo.spring.io/snapshot" }
 }
 
-
 dependencies {
     compile ('com.github.RoelGo:jSensors:2.0.4') {
         exclude group: 'org.slf4j'
     }
     compile 'com.github.RoelGo:MiniPID-Java:1.0.0'
 
-    compile 'com.google.guava:guava:19.0'
-    compile('org.springframework.shell:spring-shell-starter:2.0.1.BUILD-SNAPSHOT')
+    compile "com.google.guava:guava:23.0"
+    compile 'org.apache.commons:commons-lang3:3.0'
+    compile "org.springframework.shell:spring-shell-starter:2.0.1.BUILD-SNAPSHOT"
+    optional "org.springframework.boot:spring-boot-configuration-processor"
 
-    testCompile 'javax.inject:javax.inject:1'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
+
+compileJava.dependsOn(processResources)

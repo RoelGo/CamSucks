@@ -4,26 +4,24 @@ import be.roelgo.camsucks.CamSucksApplication;
 import be.roelgo.camsucks.service.model.SensorData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import javax.inject.Inject;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {
-        CamSucksApplication.class
-})
+@ContextConfiguration(classes = {CamSucksApplication.class})
 @ActiveProfiles({"test"})
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
-public class SensorServiceImplTest {
+public class SensorServiceImplIntegrationTest {
 
-    @Inject
+    @Autowired
     private TestSensorProvider testSensorProvider;
 
-    @Inject
+    @Autowired
     private SensorServiceImpl sensorService;
 
     @Test

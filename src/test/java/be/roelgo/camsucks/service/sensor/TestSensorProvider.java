@@ -3,11 +3,12 @@ package be.roelgo.camsucks.service.sensor;
 import be.roelgo.camsucks.service.model.SensorProvider;
 import com.profesorfalken.jsensors.JSensors;
 import com.profesorfalken.jsensors.model.components.Components;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,10 +16,11 @@ import java.nio.file.Paths;
 import static com.google.common.collect.ImmutableBiMap.of;
 
 @Component
+@Profile({"test"})
 public class TestSensorProvider implements SensorProvider {
 
     private String stubString = "";
-    @Inject
+    @Autowired
     private ResourceLoader resourceLoader;
 
     @Override
