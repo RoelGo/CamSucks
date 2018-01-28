@@ -11,8 +11,62 @@
     {
       "sourceType": "be.roelgo.camsucks.service.PropertyService",
       "defaultValue": 0,
+      "name": "camsucks.cpu-d",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 0,
+      "name": "camsucks.cpu-i",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 70,
       "name": "camsucks.cpu-max",
-      "type": "java.lang.Integer"
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 1,
+      "name": "camsucks.cpu-p",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 0,
+      "name": "camsucks.gpu-d",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 0,
+      "name": "camsucks.gpu-i",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 70,
+      "name": "camsucks.gpu-max",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 1,
+      "name": "camsucks.gpu-p",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 40,
+      "name": "camsucks.min-speed",
+      "type": "java.lang.Double"
+    },
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 50,
+      "name": "camsucks.pref-speed",
+      "type": "java.lang.Double"
     }
   ]
 }

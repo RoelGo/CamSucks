@@ -29,7 +29,7 @@ public class OrchestratorTest {
 
     @Test
     public void orchestratorShould_pollRegulateAndSend() {
-        Speed speed = new Speed();
+        Speed speed = new Speed(40.0);
         SensorData sensorData = new SensorData(50.0, 60.0);
         when(sensorService.poll()).thenReturn(sensorData);
         when(regulator.regulate(sensorData)).thenReturn(speed);

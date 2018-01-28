@@ -19,7 +19,7 @@ public class Orchestrator {
         this.fanService = fanService;
     }
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 1000)
     public void orchestrate() {
         sendSpeed(regulateSpeed(pollSensors()));
     }
