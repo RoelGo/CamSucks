@@ -20,6 +20,7 @@ import static com.google.common.collect.ImmutableBiMap.of;
 public class TestSensorProvider implements SensorProvider {
 
     private String stubString = "";
+
     @Autowired
     private ResourceLoader resourceLoader;
 

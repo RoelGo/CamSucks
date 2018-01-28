@@ -1,0 +1,18 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "name": "camsucks",
+      "type": "be.roelgo.camsucks.service.PropertyService"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "be.roelgo.camsucks.service.PropertyService",
+      "defaultValue": 0,
+      "name": "camsucks.cpu-max",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

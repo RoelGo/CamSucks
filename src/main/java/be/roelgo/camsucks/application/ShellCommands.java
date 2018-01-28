@@ -11,7 +11,7 @@ import static be.roelgo.camsucks.utils.TableUtils.buildTable;
 @ShellComponent
 public class ShellCommands {
 
-    private SensorService sensorService;
+    private final SensorService sensorService;
 
     public ShellCommands(SensorService sensorService) {
         this.sensorService = sensorService;

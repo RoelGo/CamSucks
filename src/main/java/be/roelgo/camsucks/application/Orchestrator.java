@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Profile("!test")
 public class Orchestrator {
 
-    private SensorService sensorService;
-    private Regulator regulator;
-    private FanService fanService;
+    private final SensorService sensorService;
+    private final Regulator regulator;
+    private final FanService fanService;
 
     public Orchestrator(SensorService sensorService, Regulator regulator, FanService fanService) {
         this.sensorService = sensorService;

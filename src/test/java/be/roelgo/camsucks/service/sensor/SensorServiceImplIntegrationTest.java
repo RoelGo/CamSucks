@@ -25,7 +25,7 @@ public class SensorServiceImplIntegrationTest {
     private SensorServiceImpl sensorService;
 
     @Test
-    public void poll() throws Exception {
+    public void pollShouldFallBackToMoboSensor() throws Exception {
 
         testSensorProvider.setStubString("testScenario.txt");
 
