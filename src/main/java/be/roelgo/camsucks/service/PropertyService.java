@@ -12,7 +12,6 @@ import javax.annotation.PostConstruct;
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
 @Component
-@PropertySource({"classpath:application.properties"})
 @ConfigurationProperties(prefix = "camsucks", ignoreInvalidFields = true)
 public class PropertyService {
 
