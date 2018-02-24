@@ -22,10 +22,11 @@ public class RegulatorImplTest {
     @Mock
     private PropertyService propertyService;
 
-    @Mock
+    //Mockito let me down here and injects only one PID in both PID fields in the UUT
+    @Mock(name = "cpuPID")
     private MiniPID cpuPID;
 
-    @Mock
+    @Mock(name = "gpuPID")
     private MiniPID gpuPID;
 
     @InjectMocks
@@ -41,6 +42,8 @@ public class RegulatorImplTest {
 
         regulator.regulate(sensorData);
 
+//        verify(cpuPID).getOutput(sensorData.getCpu(), 80);
+//        verify(gpuPID).getOutput(sensorData.getGpu(), 80);
         verify(propertyService).getCpuMax();
         verify(propertyService).getGpuMax();
     }

@@ -23,7 +23,7 @@ public class RegulatorImplIntegrationTest {
     private TestSensorProvider testSensorProvider;
 
     @Autowired
-    private Regulator regulator;
+    private RegulatorImpl regulator;
 
     @Test
     public void regulate() throws Exception {
