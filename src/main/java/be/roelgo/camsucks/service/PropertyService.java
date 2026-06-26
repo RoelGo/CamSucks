@@ -1,13 +1,11 @@
 package be.roelgo.camsucks.service;
 
+import jakarta.annotation.PostConstruct;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
 
 import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
 
@@ -19,8 +17,8 @@ public class PropertyService {
 
     private Double cpuMax = 70.0;
     private Double gpuMax = 70.0;
-    private Double prefSpeed = 50.0;
-    private Double minSpeed = 40.0;
+    private Double prefSpeed = 100.0;
+    private Double minSpeed = 100.0;
     private Double cpuP = 1.0;
     private Double cpuI = 0.0;
     private Double cpuD = 0.0;

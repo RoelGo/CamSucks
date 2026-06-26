@@ -1,30 +1,17 @@
-buildscript {
-    ext {
-        springBootVersion = '2.0.0.M7'
-    }
-    repositories {
-        mavenCentral()
-        maven { url "https://repo.spring.io/snapshot" }
-        maven { url "https://repo.spring.io/milestone" }
-        maven { url 'http://repo.spring.io/plugins-release' }
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
-    }
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.0.7'
+    id 'io.spring.dependency-management' version '1.1.7'
 }
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'propdeps'
-apply plugin: 'propdeps-maven'
-apply plugin: 'propdeps-idea'
 
 group = 'be.roelgo'
 version = '0.0.2'
-sourceCompatibility = 1.8
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -33,18 +20,34 @@ repositories {
     maven { url "https://repo.spring.io/snapshot" }
 }
 
+ext {
+    set('springShellVersion', "4.0.2")
+}
+
+
 dependencies {
-    compile ('com.github.RoelGo:jSensors:2.0.4') {
+    implementation ('com.github.RoelGo:jSensors:2.0.4') {
         exclude group: 'org.slf4j'
     }
-    compile 'com.github.RoelGo:MiniPID-Java:1.0.0'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.springframework.shell:spring-shell-starter'
 
-    compile "com.google.guava:guava:23.0"
-    compile 'org.apache.commons:commons-lang3:3.0'
-    compile "org.springframework.shell:spring-shell-starter:2.0.1.BUILD-SNAPSHOT"
-    optional "org.springframework.boot:spring-boot-configuration-processor"
+    implementation 'com.github.RoelGo:MiniPID-Java:1.0.0'
 
-    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    implementation "com.google.guava:guava:23.0"
+    implementation 'org.apache.commons:commons-lang3:3.0'
 }
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.shell:spring-shell-dependencies:${springShellVersion}"
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
 
 compileJava.dependsOn(processResources)

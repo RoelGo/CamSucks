@@ -1,14 +1,12 @@
 package be.roelgo.camsucks.application;
 
 import be.roelgo.camsucks.service.model.SensorService;
-import org.springframework.shell.standard.ShellComponent;
-import org.springframework.shell.standard.ShellMethod;
-import org.springframework.shell.table.Table;
+import org.springframework.shell.core.command.annotation.Command;
+import org.springframework.stereotype.Component;
 
-import static be.roelgo.camsucks.utils.TableUtils.buildTable;
 
 @SuppressWarnings("UnusedReturnValue")
-@ShellComponent
+@Component
 public class ShellCommands {
 
     private final SensorService sensorService;
@@ -17,9 +15,9 @@ public class ShellCommands {
         this.sensorService = sensorService;
     }
 
-    @ShellMethod("Poll sensors and Display result")
-    public Table poll() {
-        return buildTable(sensorService.poll());
+    @Command("Poll sensors and Display result")
+    public String poll() {
+        return "poll";
     }
 
 }
