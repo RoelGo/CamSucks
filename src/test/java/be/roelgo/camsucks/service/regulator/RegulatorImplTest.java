@@ -4,20 +4,25 @@ package be.roelgo.camsucks.service.regulator;
 import be.roelgo.camsucks.service.PropertyService;
 import be.roelgo.camsucks.service.model.SensorData;
 import com.stormbots.MiniPID;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+// Lenient strictness: @InjectMocks injects a single MiniPID mock (by type) into both the
+// cpuPID and gpuPID constructor parameters, so the cpuPID stub below is never exercised on
+// the injected instance. The JUnit 4 MockitoRule used to tolerate this; under JUnit 5's strict
+// MockitoExtension we opt into lenient stubbing to preserve the original test's intent
+// (verifying that the regulator reads its limits from PropertyService).
+@ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 public class RegulatorImplTest {
-
-    @Rule
-    public MockitoRule rule = MockitoJUnit.rule();
 
     @Mock
     private PropertyService propertyService;

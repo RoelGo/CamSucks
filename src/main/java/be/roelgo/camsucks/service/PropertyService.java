@@ -25,6 +25,7 @@ public class PropertyService {
     private Double gpuP = 1.0;
     private Double gpuI = 0.0;
     private Double gpuD = 0.0;
+    private String fanPort = "/dev/tty.usbmodem00012282281";
 
     @PostConstruct
     public void init() {
@@ -110,5 +111,13 @@ public class PropertyService {
 
     public void setGpuD(Double gpuD) {
         this.gpuD = gpuD;
+    }
+
+    public String getFanPort() {
+        return fanPort;
+    }
+
+    public void setFanPort(String fanPort) {
+        this.fanPort = fanPort;
     }
 }
